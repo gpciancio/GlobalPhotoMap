@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/gpciancio/USPhotoMap.png?label=ready&title=Ready)](https://waffle.io/gpciancio/USPhotoMap)
 Photo Map
 
 The purpose of creating this app is to solve the problem of people limiting exposure to beautiful pictures outside their social media groups.
