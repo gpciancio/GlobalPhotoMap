@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <title>USPhotoMap</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
      /* Always set the map height explicitly to define the size of the div
       * element that contains the map. */
      #map {
-       height: 50%;
+       height: 75%;
      }
      /* Optional: Makes the sample page fill the window. */
      html, body {
@@ -20,26 +21,62 @@
    </style>
   </head>
   <body>
-    <h1 class= center-text>Hello USA</h1>
+    <h1 class= center-text>Global Photo Map</h1>
 
-<!-- jQuery -->
+<!-- Geolocation------------->
 <div id="map"></div>
+<div id="below"></div>
 <script>
-  var map;
+var latitude = null;
+var longitude = null;
+
+ // Note: This example requires that you consent to location sharing when
+ // prompted by your browser. If you see the error "The Geolocation service
+ // failed.", it means you probably did not give permission for the browser to
+ // locate you.
+  var map, infoWindow;
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 40.446, lng: -94.570},
-      zoom: 4
+       center: {lat: 40.446, lng: -94.570},
+       zoom: 3
     });
-  }
+
+
+    map.addListener("click", function (event) {
+      latitude = event.latLng.lat();
+      longitude = event.latLng.lng();
+      console.log( latitude + ', ' + longitude );
+
+      var requestUrl = `https://api.flickr.com/services/rest/?method=flickr.photos.search&lat=${latitude}&lon=${longitude}&api_key=2c5c8399f6b3ea9813fa2a57342f7d78&format=json&nojsoncallback=1`
+      $.get(requestUrl, function(result) {
+        var farmId;
+        var serverId;
+        var secret;
+        var imageUrl;
+        farmId = result.photos.photo[0].farm;
+        serverId = result.photos.photo[0].server;
+        id = result.photos.photo[0].id;
+        secret = result.photos.photo[0].secret;
+        imageUrl = `https://farm${farmId}.staticflickr.com/${serverId}/${id}_${secret}.jpg`
+
+        // var image;
+        // image = document.createElement("IMG")
+        // m = document.getElementById('map')
+        $('#below').html(`<img src=${imageUrl} height="64px" width="64px">`)
+
+        // this is temporary until we can loop through all the photos and manually create new image tags
+      });
+
+    });
+
+  };
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLkyxK-2pRusMpOy3ZrDWRnnq9iE1kpGI&callback=initMap"
-async defer></script>
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
-      <!-- javascript link -->
-    <script src="app.js" charset="utf-8"></script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLkyxK-2pRusMpOy3ZrDWRnnq9iE1kpGI&callback=initMap">
+
+</script>
+<!-- HTML Here -->
+<!-- <img src=imageUrl> -->
+
   </body>
 </html>
