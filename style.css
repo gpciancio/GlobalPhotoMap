@@ -1,27 +1,20 @@
-/*
-button {
-  center this bitch!
-  increase padding
-  change color and effect
+#map {
+	height: 55%;
+}
 
-}*/
-/*body {
-    background-image: url("https://static.pexels.com/photos/1250/sky-clouds-cloudy-blur.jpg");
-    background-color: #cccccc;
-}*/
 
-/*#button{
-    height:20px;
-    width:100px;
-    margin: -20px -50px;
-    position:relative;
-    top:50%;
-    left:50%;
-}*/
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
 .modal-footer {
 	text-align:center;\
   padding: 30px;
 }
+
 .modal-footer a {
 	display:inline-block;
 	margin:0 15px;

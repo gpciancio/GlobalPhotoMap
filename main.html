@@ -6,22 +6,8 @@
   <title>GlobalPhotoMap</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <style>
-    /* Always set the map height explicitly to define the size of the div
-      * element that contains the map. */
 
-    #map {
-      height: 55%;
-    }
-    /* Optional: Makes the sample page fill the window. */
 
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <!-- <script type="text/javascript" src="scripts.js"></script> -->
@@ -55,7 +41,7 @@
       <div class="nav-content">
         <div id=#navtitle class="nav-title strong black-text">Global Photo Map</div>
         <a class="btn-floating btn-large halfway-fab waves-effect light-green darken-1">
-          <i href="index1.html" class="material-icons">GPM</i>
+          <i href="index.html" class="material-icons">GPM</i>
         </a>
       </div>
     </nav>
@@ -84,25 +70,26 @@
         zoom: 3
       });
 
-
+      function placeMarker(location) {
+          var marker = new google.maps.Marker({
+              position: location,
+              map: map
+          });
+      }
 
       // click event listening for a click on the map
       map.addListener("click", function(event) {
         // set the lat and lon of the click coordinates
         latitude = event.latLng.lat();
         longitude = event.latLng.lng();
+        placeMarker(event.latLng);
 
-//dromping marker event
-        google.maps.event.addListener(map, 'click', function(event) {
-           placeMarker(event.latLng);
-        });
 
-        function placeMarker(location) {
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-        }
+        // google.maps.event.addListener(map, 'click', function(event) {
+        //    placeMarker(event.latLng);
+        // });
+
+
 
         // set up requestUrl with lat and lon variables and API key variable
         var requestUrl = `https://gp-flickr.herokuapp.com/services/rest/?method=flickr.photos.search&lat=${latitude}&lon=${longitude}&format=json&nojsoncallback=1`;
