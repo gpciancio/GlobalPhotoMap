@@ -3,39 +3,25 @@
 
 <head>
   <meta charset="utf-8">
-  <title>GlobalPhotoMap</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <style>
-    /* Always set the map height explicitly to define the size of the div
-      * element that contains the map. */
-
-    #map {
-      height: 55%;
-    }
-    /* Optional: Makes the sample page fill the window. */
-
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
-  <!--Import jQuery before materialize.js-->
+  <title>GPMap Landing Page</title>
+  <script>
+    $(document).ready(function() {
+        $(".button-collapse").sideNav();
+      })
+      </script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!-- <script type="text/javascript" src="scripts.js"></script> -->
 
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <link rel='stylesheet' media="screen" type='text/css' href="style.css">
+  </script>
 </head>
 
-<body>
 
-  <!-- //Nav bar set up -->
+<body background="http://www.publicdomainpictures.net/pictures/80000/velka/digital-clouds.jpg">
   <container>
     <nav class="nav-extended light-blue accent-2 material-icons">
       <div class="nav-wrapper light-blue darken-4">
@@ -46,7 +32,7 @@
           <li><a target="_blank" href="https://www.google.com/maps">Google Maps</a></li>
           <li><a target="_blank" href="https://www.flickr.com/">Flickr</a></li>
         </ul>
-        <ul class="side-nav purple lighten-2" id="mobile-demo">
+        <ul class="side-nav" id="mobile-demo">
           <li><a href="sass.html">Google Maps</a></li>
           <li><a href="badges.html">Flickr</a></li>
 
@@ -59,90 +45,57 @@
         </a>
       </div>
     </nav>
-
+    <br>
+    <br>
   </container>
-  <!-- Geolocation------------->
-  <div id="map"></div>
-  <div id="photos"></div>
-  <script>
-    // set up our variables
-    var latitude = null;
-    var longitude = null;
 
-    // find the '#below' element in our html in order to update if photos are loaded
-    var photosElement = document.getElementById('photos');
+  <div class="modal-footer">
 
-    // google map is initialized and laoded with preset config -- center and zoom
-    var map, infoWindow;
+      <a target="_blank" href="index.html" class="modal-action waves-effect waves-light btn red lighten-2">Begin Photo Map Journey</a>
 
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-          lat: 40.446,
-          lng: -94.570
-        },
-        zoom: 3
-      });
+  </div>
 
+<br>
+<br>
+  <div class="row">
+    <div class="col s12 center-align">
+      <span "center-align" display="in-block" background-color="deep-orange lighten-5"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQg0knC67xZMm7rVZaNKcTKcWB42vq1ZL3X7PAShzB_H93sKclZJQ">
 
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMZBN9glKjLXjPp2aN1B2Q3IhbxfewSxdyKNl7FeG7tZkp9ZTpSQ">
+        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT_n5519XbulENZSjeJmheZcMqDB2yl1SuhjyW_D8FcOd5eemm9">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlWNDxnu3E8fB8hVEqjlb6oTnTRjB8w0JRpBd5P4F6H1MsBEAs">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQagAwHm1sT1obnrkqz_4amGl1q6z6TsEwMQOyMYSliro_I4hRB">
 
-      // click event listening for a click on the map
-      map.addListener("click", function(event) {
-        // set the lat and lon of the click coordinates
-        latitude = event.latLng.lat();
-        longitude = event.latLng.lng();
+        <img width= "40%" src="https://images.pexels.com/photos/39623/hands-world-map-global-39623.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb">
+      </span>
 
-//dromping marker event
-        google.maps.event.addListener(map, 'click', function(event) {
-           placeMarker(event.latLng);
-        });
-
-        function placeMarker(location) {
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-        }
-
-        // set up requestUrl with lat and lon variables and API key variable
-        var requestUrl = `https://gp-flickr.herokuapp.com/services/rest/?method=flickr.photos.search&lat=${latitude}&lon=${longitude}&format=json&nojsoncallback=1`;
-
-        // make request to Flicker using requestUrl to get photos by lat and lon
-        $.get(requestUrl, function(result) {
-          // TODO -- loop through the result.photos.photo array to get all the photos
-          var farmId;
-          var serverId;
-          var secret;
-          var imageUrl;
-
-          // set variables to be used to build the image url to display the images
-          farmId = result.photos.photo[0].farm;
-          serverId = result.photos.photo[0].server;
-          id = result.photos.photo[0].id;
-          secret = result.photos.photo[0].secret;
-
-          // imageUrl that will be used to display the image in the html below the map
-          imageUrl = `https://farm${farmId}.staticflickr.com/${serverId}/${id}_${secret}.jpg`
-
-          // create the image element so it can be appended to the #below element -- 'elem'
-          var img = document.createElement("IMG");
-          img.setAttribute('src', imageUrl);
-          img.setAttribute('width', '200px');
-          img.setAttribute('height', '200px');
-          photosElement.appendChild(img);
-          // $('#below').html(`<img src=${imageUrl} height="64px" width="64px">`)
-
-        });
-
-      });
-
-    };
-  </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLkyxK-2pRusMpOy3ZrDWRnnq9iE1kpGI&callback=initMap">
-  </script>
-  <!-- HTML Here -->
-
+  <container>
 
 </body>
+
+<footer class="page-footer light-green darken-1">
+  <div class="container">
+  <div class="row">
+  <div class="col l6 s12">
+  <h5 class="white-text text-wrap ">Explore the World of Photos</h5>
+  <p class="grey-text text-lighten-4">Prepare to be Amazed!</p>
+  </div>
+  <div class="col l4 offset-l2 s12">
+  <!-- <h5 class="white-text ">Global Photo Map Links</h5>
+  <ul>
+    <li><a target="_blank" class="text-lighten-4" "!important" href="https://www.google.com/maps">Google Maps</a></li>
+    <li><a target="_blank" class="text-lighten-4" href="https://www.flickr.com/">Flickr</a></li>
+  </ul> -->
+  </div>
+  </div>
+  </div>
+  <div class="footer-copyright lime darken-4">
+    <div class="container">
+      © 2017 Copyright Galvanize
+      <a class="grey-text text-lighten-4 right" href="#!">GPC_IO[g49]</a>
+    </div>
+  </div>
+  </container>
+  </body>
 
 </html>
