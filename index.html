@@ -84,12 +84,25 @@
         zoom: 3
       });
 
+
+
       // click event listening for a click on the map
       map.addListener("click", function(event) {
         // set the lat and lon of the click coordinates
         latitude = event.latLng.lat();
         longitude = event.latLng.lng();
 
+//dromping marker event
+        google.maps.event.addListener(map, 'click', function(event) {
+           placeMarker(event.latLng);
+        });
+
+        function placeMarker(location) {
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
 
         // set up requestUrl with lat and lon variables and API key variable
         var requestUrl = `https://gp-flickr.herokuapp.com/services/rest/?method=flickr.photos.search&lat=${latitude}&lon=${longitude}&format=json&nojsoncallback=1`;
