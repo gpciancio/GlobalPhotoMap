@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 // set up our variables
 var latitude = null;
 var longitude = null;
@@ -11,8 +20,9 @@ function initMap() {
       lat: 40.446,
       lng: -94.570
     },
-    zoom: 4
-  });
+    zoom: 4,
+    scrollwheel: false,
+});
 
   function placeMarker(location) {
       var marker = new google.maps.Marker({
