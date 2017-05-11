@@ -17,8 +17,25 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	/*background-image: url("http://www.publicdomainpictures.net/pictures/90000/velka/earth-map.jpg");*/
 	background-color: #9fc7ff;
+	/*background-repeat: no-repeat;*/
 }
+#splash-body {
+	background-image: url("http://www.publicdomainpictures.net/pictures/90000/velka/earth-map.jpg");
+	background-repeat: ;
+	height: ;
+}
+.responsive-image{
+    width: 100%;
+    background-size: 100% 100%;
+}
+/*
+.parallax-container {
+	height: "300px";
+}*/
+
+
 
 .btn {
     font-size: 2.5rem;
