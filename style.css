@@ -1,20 +1,31 @@
 #map {
 	height: 55%;
+}
 
+#navtitle {
+	color: black;
+	font-size: 200px;
 }
-.btn {
-    font-size: 2.5rem;
-    outline: 0;
-    padding: 15px;
-		color: antiquewhite;
-		border-radius: 25px;
+
+#photos {
+	margin: 0;
+	padding: 0 0 0 60px;
 }
+
 html,
 body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
 	background-color: #9fc7ff;
+}
+
+.btn {
+    font-size: 2.5rem;
+    outline: 0;
+    padding: 15px;
+		color: antiquewhite;
+		border-radius: 25px;
 }
 
 .modal-footer {
@@ -32,15 +43,6 @@ body {
 	height: 100px; /*if you set float already */
 }
 
-#navtitle {
-  color: black;
-  font-size: 200px;
-}
-#photos {
-	margin: 0;
-	padding: 0 0 0 60px;
-}
-
 .image {
 	display:inline-block;
 	border:0;
@@ -55,7 +57,6 @@ body {
 	-moz-transform: scale(1);
 	transition: all 200ms ease-in;
 	transform: scale(1);
-
 }
 
 .image:hover {
@@ -79,5 +80,4 @@ body {
 .carousel {
 
     height: 575px;
-
 }

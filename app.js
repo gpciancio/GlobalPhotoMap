@@ -1,17 +1,6 @@
 
-
-
-
-
-
-
-
-
-// set up our variables
 var latitude = null;
 var longitude = null;
-
-// google map is initialized and laoded with preset config -- center and zoom
 var map, infoWindow;
 
 function initMap() {
