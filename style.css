@@ -18,12 +18,12 @@ body {
 	margin: 0;
 	padding: 0;
 	/*background-image: url("http://www.publicdomainpictures.net/pictures/90000/velka/earth-map.jpg");*/
-	background-color: #9fc7ff;
+	background-color: 	#a3ccff;
 	/*background-repeat: no-repeat;*/
 }
 #splash-body {
 	background-image: url("http://www.publicdomainpictures.net/pictures/90000/velka/earth-map.jpg");
-	background-repeat: ;
+	background-repeat: repeat-y;
 	height: ;
 }
 .responsive-image{
@@ -43,11 +43,12 @@ body {
     padding: 15px;
 		color: antiquewhite;
 		border-radius: 25px;
+
 }
 
 .modal-footer {
 	text-align: center;
-  padding: 50px;
+  padding: 40px;
 
 }
 
@@ -95,6 +96,60 @@ body {
 }
 
 .carousel {
-
     height: 575px;
 }
+/*
+//Media queries*/
+/* ----------- iPad 1 and 2 ----------- */
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+}
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+	.modal-footer a {
+		height: 100px;
+		width: 200px;
+		align-content: center;
+		text-align: center;
+		font-size: 1.5rem;
+		padding: 10px;
+	}
+	.carousel {
+	    height: 200px;
+	}
+	.carousel .carousel-item {
+	    width: 200px;
+	    height: 200px;
+	}
+}
+
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3) {
+		.modal-footer a {
+			width: 200px;
+			align-content: center;
+			text-align: center;
+			padding: 10px;
+		}
+		.carousel {
+		    height: 200px;
+		}
+		.carousel .carousel-item {
+		    width: 200px;
+		    height: 200px;
+		}
+	}
