@@ -5,11 +5,6 @@
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <title>GPMap Landing Page</title>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!-- <script>
-  $(document).ready(function() {
-    $(".button-collapse").sideNav();
-  })
-  </script> -->
 
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
@@ -18,25 +13,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <link rel='stylesheet' media="screen" type='text/css' href="style.css">
   </script>
-
 </head>
 
 <body background="http://www.publicdomainpictures.net/pictures/90000/velka/earth-map.jpg" class="responsive-image">
-  <!-- <container background="http://www.publicdomainpictures.net/pictures/90000/velka/earth-map.jpg" class="responsive-image"> -->
   <container>
     <nav class="nav-extended light-blue accent-2 material-icons">
       <div class="nav-wrapper light-blue darken-4">
         <a class="brand-logo center">
           <img "width=100px height=100px" src="http://iconshow.me/media/images/ui/Flat-icon/png/256/compass.png"></a>
-        <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">Menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a target="_blank" href="https://www.google.com/maps">Google Maps</a></li>
-          <li><a target="_blank" href="https://www.flickr.com/">Flickr</a></li>
-        </ul> -->
-        <!-- <ul class="side-nav" id="mobile-demo">
-          <li><a href="sass.html">Google Maps</a></li>
-          <li><a href="badges.html">Flickr</a></li>
-        </ul> -->
       </div>
       <div class="nav-content">
         <div id=#navtitle class="nav-title strong">Global Photo Map</div>
@@ -45,43 +29,36 @@
         </a>
       </div>
     </nav>
-  <!-- </container> -->
   </container>
 
 
-  <div class="modal-footer responsive-image">
+<div class="modal-footer responsive-image">
+  <a target="_blank" href="main.html" class="modal-action btn waves-effect waves red">Make Global Photo Map</a>
+</div>
 
-      <a target="_blank" href="main.html" class="modal-action btn waves-effect waves red">Make Global Photo Map</a>
+<script>    $(document).ready(function(){
+  $('.carousel').carousel();
+  });
+</script>
 
-  </div>
-
-  <script>    $(document).ready(function(){
-    $('.carousel').carousel();
-    });
-    </script>
-
-  <div style= 'height=600px;' class="carousel">
-    <a class="carousel-item" href="#one!"><img src="https://images.pexels.com/photos/39623/hands-world-map-global-39623.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb"></a>
-    <a class="carousel-item" href="#two!"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT_n5519XbulENZSjeJmheZcMqDB2yl1SuhjyW_D8FcOd5eemm9"></a>
-    <a class="carousel-item" href="#three!"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlWNDxnu3E8fB8hVEqjlb6oTnTRjB8w0JRpBd5P4F6H1MsBEAs"></a>
-    <a class="carousel-item" href="#four!"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQagAwHm1sT1obnrkqz_4amGl1q6z6TsEwMQOyMYSliro_I4hRB"></a>
-    <a class="carousel-item" href="#five!"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMZBN9glKjLXjPp2aN1B2Q3IhbxfewSxdyKNl7FeG7tZkp9ZTpSQ"></a>
-  </div>
+<div style= 'height=600px;' class="carousel">
+  <a class="carousel-item" href="#one!"><img src="https://images.pexels.com/photos/39623/hands-world-map-global-39623.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb"></a>
+  <a class="carousel-item" href="#two!"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT_n5519XbulENZSjeJmheZcMqDB2yl1SuhjyW_D8FcOd5eemm9"></a>
+  <a class="carousel-item" href="#three!"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlWNDxnu3E8fB8hVEqjlb6oTnTRjB8w0JRpBd5P4F6H1MsBEAs"></a>
+  <a class="carousel-item" href="#four!"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQagAwHm1sT1obnrkqz_4amGl1q6z6TsEwMQOyMYSliro_I4hRB"></a>
+  <a class="carousel-item" href="#five!"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMZBN9glKjLXjPp2aN1B2Q3IhbxfewSxdyKNl7FeG7tZkp9ZTpSQ"></a>
+</div>
 
 <footer class="page-footer light-blue accent-2">
-  <!-- <div class="container"> -->
   <div class="row">
     <div class="col l6 s12">
       <h5 class="white-text text-wrap ">Explore the World of Photos</h5>
         <p class="grey-text text-lighten-4">Amazing photos from around the world!</p>
     </div>
-    <!-- <div class="col l4 offset-l2 s12">
-    </div> -->
   </div>
-
   <div class="footer-copyright light-blue darken-4">
     <div class="container">
-      © 2017 Copyright Galvanize
+      Powered by Google Maps & Flicker API's
       <a class="grey-text text-lighten-4 right" href="#!">GPC_IO[g49]</a>
     </div>
   </div>

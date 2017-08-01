@@ -12,30 +12,23 @@
 	padding: 0 0 0 60px;
 }
 
-html,
-body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	/*background-image: url("http://www.publicdomainpictures.net/pictures/90000/velka/earth-map.jpg");*/
-	background-color: 	#a3ccff;
-	/*background-repeat: no-repeat;*/
-}
 #splash-body {
 	background-image: url("http://www.publicdomainpictures.net/pictures/90000/velka/earth-map.jpg");
 	background-repeat: repeat-y;
 	height: ;
 }
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: 	#a3ccff;
+}
 .responsive-image{
     width: 100%;
     background-size: 100% 100%;
 }
-/*
-.parallax-container {
-	height: "300px";
-}*/
-
-
 
 .btn {
     font-size: 2.5rem;
@@ -124,14 +117,13 @@ body {
 		padding: 10px;
 	}
 	.carousel {
-	    height: 200px;
+	    height: 200px
 	}
 	.carousel .carousel-item {
 	    width: 200px;
 	    height: 200px;
 	}
 }
-
 /* ----------- Galaxy S5 ----------- */
 
 /* Portrait and Landscape */
