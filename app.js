@@ -25,8 +25,8 @@ function initMap() {
     longitude = event.latLng.lng();
 
     var photosElement = document.getElementById('photos');
-    var requestUrl = `https://gp-flickr.herokuapp.com/services/rest/?method=flickr.photos.search&lat=${latitude}&lon=${longitude}&format=json&nojsoncallback=1`;
-
+    var requestUrl = `https://api.flickr.com/services/rest/?method=flickr.photos.search&lat=${latitude}&lon=${longitude}&api_key=2c5c8399f6b3ea9813fa2a57342f7d78&format=json&nojsoncallback=1`;;
+// `https://globalphotomapserver.herokuapp.com/services/rest/?method=flickr.photos.search&lat=${latitude}&lon=${longitude}&format=json&nojsoncallback=1`;
     $.get(requestUrl, function(result) {
       var farmId;
       var serverId;
@@ -57,4 +57,4 @@ function initMap() {
 
   });
 
-};
+};;
